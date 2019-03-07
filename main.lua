@@ -64,9 +64,9 @@ local function calculateButtonTouch( event )
     local circumferenceOfCircle
  
     dOfCirlce = dOfCircleTextField.text
-    areaOfCirlce = ((dOfCirlce / 2) * (dOfCirlce / 2)) * 3.141592653
+    areaOfCirlce = ((dOfCirlce / 2) * (dOfCirlce / 2)) * math.pi
     areaOfCirlce = round(areaOfCirlce)
-    circumferenceOfCircle = (dOfCirlce / 2) * 2 * 3.141592653
+    circumferenceOfCircle = (dOfCirlce / 2) * 2 * math.pi
     circumferenceOfCircle = round(circumferenceOfCircle)
 
     areaOfCirlceTextField.text = "Area is " .. areaOfCirlce
@@ -76,4 +76,3 @@ local function calculateButtonTouch( event )
 end
 
 calculateButton:addEventListener( "touch", calculateButtonTouch )
-
