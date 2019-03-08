@@ -8,9 +8,13 @@
 
 display.setDefault( "background", 100/255, 150/255, 250/255 )
 
+-- Title image
+
 local title = display.newImageRect( "assets/title.png", 800, 600 )
 title.x = display.contentCenterX - 5
 title.y = display.contentCenterY + 5
+
+-- Lines
 
 local circle = display.newImageRect( "assets/circle.png", 150, 150)
 circle.x = display.contentCenterX
@@ -32,6 +36,8 @@ local image = display.newImageRect( "assets/line.png", 1000, 350 )
 image.x = 175
 image.y = 295
 
+-- Variables and text feilds 
+
 local dOfCircleTextField = native.newTextField( display.contentCenterX, display.contentCenterY + 150, 300, 50 )
 dOfCircleTextField.id = "d textField"
 
@@ -47,16 +53,22 @@ local diameterTextField = display.newText( "Enter Diameter", display.contentCent
 diameterTextField.id = "diameter textField"
 diameterTextField:setFillColor( 1, 1, 1 )
 
+-- Calculate button
+
 local calculateButton = display.newImageRect( "assets/button.png", 125, 50 )
 calculateButton.x = display.contentCenterX
 calculateButton.y = 257
 calculateButton.id = "calculate button"
+
+-- Rounds answer by two decimals
 
 function round(num, numDecimalPlaces)
   local mult = 10^(numDecimalPlaces or 2)
   return math.floor(num * mult + 0.5) / mult
 end
  
+-- Eqautions and function calculate button touch event
+
 local function calculateButtonTouch( event )
     
     local diameterOfCircle
